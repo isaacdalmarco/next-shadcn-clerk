@@ -1,5 +1,5 @@
 'use client';
-import { navItems } from '@/constants/data';
+import { useNavItems } from '@/hooks/use-nav-items';
 import {
   KBarAnimator,
   KBarPortal,
@@ -14,6 +14,7 @@ import useThemeSwitching from './use-theme-switching';
 
 export default function KBar({ children }: { children: React.ReactNode }) {
   const router = useRouter();
+  const navItems = useNavItems();
 
   // These action are for the navigation
   const actions = useMemo(() => {
@@ -52,7 +53,7 @@ export default function KBar({ children }: { children: React.ReactNode }) {
       // Return only valid actions (ignoring null base actions for containers)
       return baseAction ? [baseAction, ...childActions] : childActions;
     });
-  }, [router]);
+  }, [router, navItems]);
 
   return (
     <KBarProvider actions={actions}>

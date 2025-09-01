@@ -1,5 +1,8 @@
 import type { NextConfig } from 'next';
 import { withSentryConfig } from '@sentry/nextjs';
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
 
 // Define the base Next.js configuration
 const baseConfig: NextConfig = {
@@ -15,7 +18,7 @@ const baseConfig: NextConfig = {
   transpilePackages: ['geist']
 };
 
-let configWithPlugins = baseConfig;
+let configWithPlugins = withNextIntl(baseConfig);
 
 // Conditionally enable Sentry configuration
 if (!process.env.NEXT_PUBLIC_SENTRY_DISABLED) {
@@ -40,7 +43,7 @@ if (!process.env.NEXT_PUBLIC_SENTRY_DISABLED) {
     },
 
     // Route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
-    // This can increase your server load as well as your hosting bill.
+    // This can increase your server load as well as well as your hosting bill.
     // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
     // side errors will fail.
     tunnelRoute: '/monitoring',

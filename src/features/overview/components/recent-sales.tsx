@@ -6,6 +6,7 @@ import {
   CardTitle,
   CardDescription
 } from '@/components/ui/card';
+import { useTranslations } from 'next-intl';
 
 const salesData = [
   {
@@ -46,11 +47,13 @@ const salesData = [
 ];
 
 export function RecentSales() {
+  const t = useTranslations('overview');
+
   return (
     <Card className='h-full'>
       <CardHeader>
-        <CardTitle>Recent Sales</CardTitle>
-        <CardDescription>You made 265 sales this month.</CardDescription>
+        <CardTitle>{t('recentSalesTitle')}</CardTitle>
+        <CardDescription>{t('recentSalesDescription')}</CardDescription>
       </CardHeader>
       <CardContent>
         <div className='space-y-8'>

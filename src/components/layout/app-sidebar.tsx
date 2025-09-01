@@ -29,16 +29,16 @@ import {
   SidebarRail
 } from '@/components/ui/sidebar';
 import { UserAvatarProfile } from '@/components/user-avatar-profile';
-import { navItems } from '@/constants/data';
+import { useNavItems } from '@/hooks/use-nav-items';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { useUser } from '@clerk/nextjs';
+import { OrganizationSwitcher } from '@clerk/nextjs';
+import { useSidebar } from '@/components/ui/sidebar';
 import {
   IconBell,
   IconChevronRight,
   IconChevronsDown,
-  IconCreditCard,
   IconLogout,
-  IconPhotoUp,
   IconUserCircle
 } from '@tabler/icons-react';
 import { SignOutButton } from '@clerk/nextjs';
@@ -46,46 +46,48 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import * as React from 'react';
 import { Icons } from '../icons';
-import { OrgSwitcher } from '../org-switcher';
-export const company = {
-  name: 'Acme Inc',
-  logo: IconPhotoUp,
-  plan: 'Enterprise'
-};
-
-const tenants = [
-  { id: '1', name: 'Acme Inc' },
-  { id: '2', name: 'Beta Corp' },
-  { id: '3', name: 'Gamma Ltd' }
-];
+import { ThemeSelector } from '../theme-selector';
+import { ModeToggle } from './ThemeToggle/theme-toggle';
+import { ProfileDialog } from './profile-dialog';
+import { useTranslations } from 'next-intl';
 
 export default function AppSidebar() {
   const pathname = usePathname();
   const { isOpen } = useMediaQuery();
   const { user } = useUser();
   const router = useRouter();
-  const handleSwitchTenant = (_tenantId: string) => {
-    // Tenant switching functionality would be implemented here
-  };
+  const { state } = useSidebar();
 
-  const activeTenant = tenants[0];
+  const isCollapsed = state === 'collapsed';
+
+  const [profileDialogOpen, setProfileDialogOpen] = React.useState(false);
 
   React.useEffect(() => {
     // Side effects based on sidebar state changes
   }, [isOpen]);
 
+  const t = useTranslations();
+  const navItems = useNavItems();
+
   return (
     <Sidebar collapsible='icon'>
       <SidebarHeader>
-        <OrgSwitcher
-          tenants={tenants}
-          defaultTenant={activeTenant}
-          onTenantSwitch={handleSwitchTenant}
+        <OrganizationSwitcher
+          appearance={{
+            elements: {
+              organizationSwitcherTriggerIcon: `flex items-center gap-2 px-2 py-2 rounded-md hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors 
+                  ${isCollapsed ? '!hidden' : 'block'}`,
+
+              organizationPreviewTextContainer: `transition-all duration-200 ${
+                isCollapsed ? '!hidden' : 'block'
+              }`
+            }
+          }}
         />
       </SidebarHeader>
       <SidebarContent className='overflow-x-hidden'>
         <SidebarGroup>
-          <SidebarGroupLabel>Overview</SidebarGroupLabel>
+          <SidebarGroupLabel>{t('sidebar.overview')}</SidebarGroupLabel>
           <SidebarMenu>
             {navItems.map((item) => {
               const Icon = item.icon ? Icons[item.icon] : Icons.logo;
@@ -182,21 +184,31 @@ export default function AppSidebar() {
                 <DropdownMenuSeparator />
 
                 <DropdownMenuGroup>
-                  <DropdownMenuItem
-                    onClick={() => router.push('/dashboard/profile')}
-                  >
+                  <DropdownMenuItem onClick={() => setProfileDialogOpen(true)}>
                     <IconUserCircle className='mr-2 h-4 w-4' />
-                    Profile
+                    {t('navigation.profile')}
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <IconCreditCard className='mr-2 h-4 w-4' />
-                    Billing
-                  </DropdownMenuItem>
+
                   <DropdownMenuItem>
                     <IconBell className='mr-2 h-4 w-4' />
-                    Notifications
+                    {t('sidebar.notifications')}
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
+                <DropdownMenuSeparator />
+
+                {/* Configurações de Tema */}
+                <DropdownMenuGroup>
+                  <DropdownMenuLabel className='text-muted-foreground px-2 py-1.5 text-xs font-medium'>
+                    {t('sidebar.appearance')}
+                  </DropdownMenuLabel>
+                  <div className='px-2 py-1.5'>
+                    <ModeToggle compact />
+                  </div>
+                  <div className='px-2 py-1.5'>
+                    <ThemeSelector compact />
+                  </div>
+                </DropdownMenuGroup>
+
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   <IconLogout className='mr-2 h-4 w-4' />
@@ -208,6 +220,12 @@ export default function AppSidebar() {
         </SidebarMenu>
       </SidebarFooter>
       <SidebarRail />
+
+      {/* Profile Dialog */}
+      <ProfileDialog
+        open={profileDialogOpen}
+        onOpenChange={setProfileDialogOpen}
+      />
     </Sidebar>
   );
 }

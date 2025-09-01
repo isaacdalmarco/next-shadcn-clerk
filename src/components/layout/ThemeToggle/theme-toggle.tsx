@@ -6,7 +6,11 @@ import * as React from 'react';
 
 import { Button } from '@/components/ui/button';
 
-export function ModeToggle() {
+interface ModeToggleProps {
+  compact?: boolean;
+}
+
+export function ModeToggle({ compact = false }: ModeToggleProps) {
   const { setTheme, resolvedTheme } = useTheme();
 
   const handleThemeToggle = React.useCallback(
@@ -31,6 +35,20 @@ export function ModeToggle() {
     },
     [resolvedTheme, setTheme]
   );
+
+  if (compact) {
+    return (
+      <Button
+        variant='outline'
+        size='sm'
+        className='h-8 w-full justify-start text-xs'
+        onClick={handleThemeToggle}
+      >
+        <IconBrightness className='mr-2 h-3 w-3' />
+        {resolvedTheme === 'dark' ? 'Modo Claro' : 'Modo Escuro'}
+      </Button>
+    );
+  }
 
   return (
     <Button

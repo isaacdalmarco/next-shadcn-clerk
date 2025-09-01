@@ -19,7 +19,7 @@ This is a starter template using the following stack:
 - Language - [TypeScript](https://www.typescriptlang.org)
 - Auth - [Clerk](https://go.clerk.com/ILdYhn7)
 - Error tracking - [<picture><img alt="Sentry" src="public/assets/sentry.svg">
-        </picture>](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy26q2-nextjs&utm_content=github-banner-project-tryfree)
+  </picture>](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy26q2-nextjs&utm_content=github-banner-project-tryfree)
 - Styling - [Tailwind CSS v4](https://tailwindcss.com)
 - Components - [Shadcn-ui](https://ui.shadcn.com)
 - Schema Validations - [Zod](https://zod.dev)
@@ -28,24 +28,42 @@ This is a starter template using the following stack:
 - Tables - [Tanstack Data Tables](https://ui.shadcn.com/docs/components/data-table) • [Dice table](https://www.diceui.com/docs/components/data-table)
 - Forms - [React Hook Form](https://ui.shadcn.com/docs/components/form)
 - Command+k interface - [kbar](https://kbar.vercel.app/)
+- Internationalization - [next-intl](https://next-intl-docs.vercel.app/)
 - Linting - [ESLint](https://eslint.org)
 - Pre-commit Hooks - [Husky](https://typicode.github.io/husky/)
 - Formatting - [Prettier](https://prettier.io)
 
 _If you are looking for a Tanstack start dashboard template, here is the [repo](https://git.new/tanstack-start-dashboard)._
 
+## Additional Features
+
+### 🌍 Internationalization (i18n)
+
+- **Multi-language support** with [next-intl](https://next-intl-docs.vercel.app/)
+- **Automatic language detection** from browser's `accept-language` header
+- **Supported languages**: English (en), Spanish (es), Portuguese Brazil (pt-BR)
+- **Complete UI translation** including all components, forms, and navigation
+
+### 🏢 Clerk Organizations
+
+- **Team management** with Clerk Organizations
+- **Organization switcher** in sidebar with responsive design
+- **Member management** and role-based access control
+- **Organization settings** and billing integration
+- **Seamless organization switching** with persistent state
+
 ## Pages
 
-| Pages                                                                                 | Specifications                                                                                                                                                                                                                                                          |
-| :------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Signup / Signin](https://go.clerk.com/ILdYhn7)      | Authentication with **Clerk** provides secure authentication and user management with multiple sign-in options including passwordless authentication, social logins, and enterprise SSO - all designed to enhance security while delivering a seamless user experience. |
-| [Dashboard (Overview)](https://shadcn-dashboard.kiranism.dev/dashboard)    | Cards with Recharts graphs for analytics. Parallel routes in the overview sections feature independent loading, error handling, and isolated component rendering. |
-| [Product](https://shadcn-dashboard.kiranism.dev/dashboard/product)         | Tanstack tables with server side searching, filter, pagination by Nuqs which is a Type-safe search params state manager in nextjs                                                                                                                                       |
-| [Product/new](https://shadcn-dashboard.kiranism.dev/dashboard/product/new) | A Product Form with shadcn form (react-hook-form + zod).                                                                                                                                                                                                                |
-| [Profile](https://shadcn-dashboard.kiranism.dev/dashboard/profile)         | Clerk's full-featured account management UI that allows users to manage their profile and security settings                                                                                                                                                             |
-| [Kanban Board](https://shadcn-dashboard.kiranism.dev/dashboard/kanban)     | A Drag n Drop task management board with dnd-kit and zustand to persist state locally.                                                                                                                                                                                  |
-| [Not Found](https://shadcn-dashboard.kiranism.dev/dashboard/notfound)      | Not Found Page Added in the root level                                                                                                                                                                                                                                  |
-| [Global Error](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy26q2-nextjs&utm_content=github-banner-project-tryfree)           | A centralized error page that captures and displays errors across the application. Integrated with **Sentry** to log errors, provide detailed reports, and enable replay functionality for better debugging. |
+| Pages                                                                                                                                                                  | Specifications                                                                                                                                                                                                                                                                                                                |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Signup / Signin](https://go.clerk.com/ILdYhn7)                                                                                                                        | Authentication with **Clerk** provides secure authentication and user management with multiple sign-in options including passwordless authentication, social logins, and enterprise SSO - all designed to enhance security while delivering a seamless user experience. Includes **Clerk Organizations** for team management. |
+| [Dashboard (Overview)](https://shadcn-dashboard.kiranism.dev/dashboard)                                                                                                | Cards with Recharts graphs for analytics. Parallel routes in the overview sections feature independent loading, error handling, and isolated component rendering.                                                                                                                                                             |
+| [Product](https://shadcn-dashboard.kiranism.dev/dashboard/product)                                                                                                     | Tanstack tables with server side searching, filter, pagination by Nuqs which is a Type-safe search params state manager in nextjs                                                                                                                                                                                             |
+| [Product/new](https://shadcn-dashboard.kiranism.dev/dashboard/product/new)                                                                                             | A Product Form with shadcn form (react-hook-form + zod).                                                                                                                                                                                                                                                                      |
+| [Profile](https://shadcn-dashboard.kiranism.dev/dashboard/profile)                                                                                                     | Clerk's full-featured account management UI that allows users to manage their profile and security settings                                                                                                                                                                                                                   |
+| [Kanban Board](https://shadcn-dashboard.kiranism.dev/dashboard/kanban)                                                                                                 | A Drag n Drop task management board with dnd-kit and zustand to persist state locally.                                                                                                                                                                                                                                        |
+| [Not Found](https://shadcn-dashboard.kiranism.dev/dashboard/notfound)                                                                                                  | Not Found Page Added in the root level                                                                                                                                                                                                                                                                                        |
+| [Global Error](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy26q2-nextjs&utm_content=github-banner-project-tryfree) | A centralized error page that captures and displays errors across the application. Integrated with **Sentry** to log errors, provide detailed reports, and enable replay functionality for better debugging.                                                                                                                  |
 
 ## Feature based organization
 
@@ -94,7 +112,7 @@ src/
 Clone the repo:
 
 ```
-git clone https://github.com/Kiranism/next-shadcn-dashboard-starter.git
+git clone https://github.com/isaacdalmarco/next-shadcn-clerk.git
 ```
 
 - `pnpm install` ( we have legacy-peer-deps=true added in the .npmrc)

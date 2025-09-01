@@ -1,0 +1,151 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "actions": "Acciones",
+    "status": "Estado",
+    "created": "Creado",
+    "updated": "Actualizado"
+  },
+  "navigation": {
+    "overview": "Resumen",
+    "products": "Productos",
+    "kanban": "Kanban",
+    "profile": "Perfil",
+    "dashboard": "Panel",
+    "home": "Inicio"
+  },
+  "sidebar": {
+    "overview": "Resumen",
+    "appearance": "Apariencia",
+    "notifications": "Notificaciones"
+  },
+  "profile": {
+    "title": "Perfil de Usuario",
+    "close": "Cerrar"
+  },
+  "auth": {
+    "signIn": "Iniciar Sesión",
+    "signUp": "Registrarse",
+    "signOut": "Cerrar Sesión",
+    "email": "Correo",
+    "password": "Contraseña",
+    "login": "Iniciar Sesión",
+    "register": "Registrarse"
+  },
+  "dashboard": {
+    "welcome": "Bienvenido a tu panel",
+    "stats": "Estadísticas",
+    "recentActivity": "Actividad Reciente",
+    "quickActions": "Acciones Rápidas"
+  },
+  "products": {
+    "title": "Productos",
+    "addProduct": "Agregar Producto",
+    "editProduct": "Editar Producto",
+    "deleteProduct": "Eliminar Producto",
+    "productName": "Nombre del Producto",
+    "description": "Descripción",
+    "price": "Precio",
+    "category": "Categoría",
+    "stock": "Inventario",
+    "actions": "Acciones",
+    "noProducts": "No se encontraron productos",
+    "createFirst": "Crea tu primer producto"
+  },
+  "kanban": {
+    "title": "Tablero Kanban",
+    "addColumn": "Agregar Columna",
+    "addTask": "Agregar Tarea",
+    "columnName": "Nombre de Columna",
+    "taskName": "Nombre de Tarea",
+    "taskDescription": "Descripción de Tarea",
+    "assignee": "Asignado",
+    "priority": "Prioridad",
+    "dueDate": "Fecha de Vencimiento",
+    "status": "Estado",
+    "noTasks": "No hay tareas en esta columna"
+  },
+  "overview": {
+    "title": "Resumen",
+    "welcome": "¡Hola, bienvenido de vuelta! 👋",
+    "download": "Descargar",
+    "overview": "Resumen",
+    "analytics": "Analíticas",
+    "totalSales": "Ventas Totales",
+    "totalRevenue": "Ingresos Totales",
+    "newCustomers": "Nuevos Clientes",
+    "activeAccounts": "Cuentas Activas",
+    "growthRate": "Tasa de Crecimiento",
+    "trendingUp": "Tendencia al alza este mes",
+    "visitorsLast6Months": "Visitantes de los últimos 6 meses",
+    "down20Percent": "Bajó 20% este período",
+    "acquisitionNeedsAttention": "La adquisición necesita atención",
+    "strongUserRetention": "Fuerte retención de usuarios",
+    "engagementExceedTargets": "El compromiso supera los objetivos",
+    "steadyPerformanceIncrease": "Aumento constante del rendimiento",
+    "meetsGrowthProjections": "Cumple las proyecciones de crecimiento",
+    "activeUsers": "Usuarios Activos",
+    "growth": "Crecimiento",
+    "thisMonth": "Este Mes",
+    "lastMonth": "Mes Pasado",
+    "recentSales": "Ventas Recientes",
+    "topProducts": "Productos Principales"
+  },
+  "organization": {
+    "loading": "Cargando...",
+    "selectOrganization": "Seleccionar Organización",
+    "createOrganization": "Crear Organización",
+    "organizationName": "Nombre de Organización",
+    "manageOrganization": "Gestionar Organización",
+    "manageOrganizationDescription": "Gestiona tu organización, miembros y planes",
+    "overview": "Resumen",
+    "members": "Miembros",
+    "billing": "Facturación",
+    "settings": "Configuración",
+    "organizations": "Organizaciones",
+    "organizationsDescription": "Gestiona tus organizaciones y equipos",
+    "organizationMembers": "Miembros de la Organización",
+    "organizationMembersDescription": "Gestiona miembros y sus permisos",
+    "organizationMembersHelp": "Usa OrganizationProfile para gestionar miembros y configuraciones.",
+    "organizationSettings": "Configuración de la Organización",
+    "organizationSettingsDescription": "Configura preferencias y configuraciones para tu organización",
+    "firstLoginSetup": "Configuración de Primer Login",
+    "firstLoginSetupDescription": "Vamos a configurar tu primera organización para comenzar a usar la plataforma.",
+    "chooseOrganization": "Elige una organización para continuar"
+  },
+  "user": {
+    "profile": "Perfil",
+    "account": "Cuenta",
+    "billing": "Facturación",
+    "settings": "Configuración",
+    "notifications": "Notificaciones",
+    "upgradeToPro": "Actualizar a Pro",
+    "newTeam": "Nuevo Equipo"
+  },
+  "breadcrumbs": {
+    "home": "Inicio",
+    "dashboard": "Panel"
+  },
+  "search": {
+    "placeholder": "Buscar...",
+    "noResults": "No se encontraron resultados",
+    "searching": "Buscando..."
+  },
+  "theme": {
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  }
+}

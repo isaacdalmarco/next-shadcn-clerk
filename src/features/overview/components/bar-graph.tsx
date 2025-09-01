@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts';
+import { useTranslations } from 'next-intl';
 
 import {
   Card,
@@ -132,6 +133,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function BarGraph() {
+  const t = useTranslations('overview');
   const [activeChart, setActiveChart] =
     React.useState<keyof typeof chartConfig>('desktop');
 
@@ -163,12 +165,14 @@ export function BarGraph() {
     <Card className='@container/card !pt-3'>
       <CardHeader className='flex flex-col items-stretch space-y-0 border-b !p-0 sm:flex-row'>
         <div className='flex flex-1 flex-col justify-center gap-1 px-6 !py-0'>
-          <CardTitle>Bar Chart - Interactive</CardTitle>
+          <CardTitle>{t('barChart')}</CardTitle>
           <CardDescription>
             <span className='hidden @[540px]/card:block'>
-              Total for the last 3 months
+              {t('barChartDescription')}
             </span>
-            <span className='@[540px]/card:hidden'>Last 3 months</span>
+            <span className='@[540px]/card:hidden'>
+              {t('barChartDescriptionShort')}
+            </span>
           </CardDescription>
         </div>
         <div className='flex'>

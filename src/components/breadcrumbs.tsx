@@ -10,10 +10,22 @@ import {
 import { useBreadcrumbs } from '@/hooks/use-breadcrumbs';
 import { IconSlash } from '@tabler/icons-react';
 import { Fragment } from 'react';
+import { useTranslations } from 'next-intl';
 
 export function Breadcrumbs() {
   const items = useBreadcrumbs();
+  const t = useTranslations('breadcrumbs');
+
   if (items.length === 0) return null;
+
+  // Função para traduzir títulos comuns
+  const translateTitle = (title: string) => {
+    const commonTitles: Record<string, string> = {
+      Home: t('home'),
+      Dashboard: t('dashboard')
+    };
+    return commonTitles[title] || title;
+  };
 
   return (
     <Breadcrumb>
@@ -22,7 +34,9 @@ export function Breadcrumbs() {
           <Fragment key={item.title}>
             {index !== items.length - 1 && (
               <BreadcrumbItem className='hidden md:block'>
-                <BreadcrumbLink href={item.link}>{item.title}</BreadcrumbLink>
+                <BreadcrumbLink href={item.link}>
+                  {translateTitle(item.title)}
+                </BreadcrumbLink>
               </BreadcrumbItem>
             )}
             {index < items.length - 1 && (
@@ -31,7 +45,7 @@ export function Breadcrumbs() {
               </BreadcrumbSeparator>
             )}
             {index === items.length - 1 && (
-              <BreadcrumbPage>{item.title}</BreadcrumbPage>
+              <BreadcrumbPage>{translateTitle(item.title)}</BreadcrumbPage>
             )}
           </Fragment>
         ))}

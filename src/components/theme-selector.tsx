@@ -50,8 +50,57 @@ const MONO_THEMES = [
   }
 ];
 
-export function ThemeSelector() {
+interface ThemeSelectorProps {
+  compact?: boolean;
+}
+
+export function ThemeSelector({ compact = false }: ThemeSelectorProps) {
   const { activeTheme, setActiveTheme } = useThemeConfig();
+
+  if (compact) {
+    return (
+      <div className='w-full'>
+        <Label htmlFor='theme-selector-compact' className='sr-only'>
+          Theme
+        </Label>
+        <Select value={activeTheme} onValueChange={setActiveTheme}>
+          <SelectTrigger
+            id='theme-selector-compact'
+            className='h-8 w-full justify-start text-xs'
+          >
+            <SelectValue placeholder='Tema' />
+          </SelectTrigger>
+          <SelectContent align='end'>
+            <SelectGroup>
+              <SelectLabel>Default</SelectLabel>
+              {DEFAULT_THEMES.map((theme) => (
+                <SelectItem key={theme.name} value={theme.value}>
+                  {theme.name}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+            <SelectSeparator />
+            <SelectGroup>
+              <SelectLabel>Scaled</SelectLabel>
+              {SCALED_THEMES.map((theme) => (
+                <SelectItem key={theme.name} value={theme.value}>
+                  {theme.name}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+            <SelectGroup>
+              <SelectLabel>Monospaced</SelectLabel>
+              {MONO_THEMES.map((theme) => (
+                <SelectItem key={theme.name} value={theme.value}>
+                  {theme.name}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div>
+    );
+  }
 
   return (
     <div className='flex items-center gap-2'>

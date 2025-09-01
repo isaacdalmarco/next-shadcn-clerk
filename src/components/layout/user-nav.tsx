@@ -12,9 +12,13 @@ import {
 import { UserAvatarProfile } from '@/components/user-avatar-profile';
 import { SignOutButton, useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+
 export function UserNav() {
   const { user } = useUser();
   const router = useRouter();
+  const t = useTranslations('user');
+
   if (user) {
     return (
       <DropdownMenu>
@@ -42,11 +46,11 @@ export function UserNav() {
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem onClick={() => router.push('/dashboard/profile')}>
-              Profile
+              {t('profile')}
             </DropdownMenuItem>
-            <DropdownMenuItem>Billing</DropdownMenuItem>
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-            <DropdownMenuItem>New Team</DropdownMenuItem>
+            <DropdownMenuItem>{t('billing')}</DropdownMenuItem>
+            <DropdownMenuItem>{t('settings')}</DropdownMenuItem>
+            <DropdownMenuItem>{t('newTeam')}</DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem>

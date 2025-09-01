@@ -15,31 +15,32 @@ import { PieGraph } from './pie-graph';
 import { RecentSales } from './recent-sales';
 import { IconTrendingUp, IconTrendingDown } from '@tabler/icons-react';
 import { Badge } from '@/components/ui/badge';
+import { useTranslations } from 'next-intl';
 
 export default function OverViewPage() {
+  const t = useTranslations('overview');
+
   return (
     <PageContainer>
       <div className='flex flex-1 flex-col space-y-2'>
         <div className='flex items-center justify-between space-y-2'>
-          <h2 className='text-2xl font-bold tracking-tight'>
-            Hi, Welcome back 👋
-          </h2>
+          <h2 className='text-2xl font-bold tracking-tight'>{t('welcome')}</h2>
           <div className='hidden items-center space-x-2 md:flex'>
-            <Button>Download</Button>
+            <Button>{t('download')}</Button>
           </div>
         </div>
         <Tabs defaultValue='overview' className='space-y-4'>
           <TabsList>
-            <TabsTrigger value='overview'>Overview</TabsTrigger>
+            <TabsTrigger value='overview'>{t('overview')}</TabsTrigger>
             <TabsTrigger value='analytics' disabled>
-              Analytics
+              {t('analytics')}
             </TabsTrigger>
           </TabsList>
           <TabsContent value='overview' className='space-y-4'>
             <div className='*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:shadow-xs lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-4'>
               <Card className='@container/card'>
                 <CardHeader>
-                  <CardDescription>Total Revenue</CardDescription>
+                  <CardDescription>{t('totalRevenue')}</CardDescription>
                   <CardTitle className='text-2xl font-semibold tabular-nums @[250px]/card:text-3xl'>
                     $1,250.00
                   </CardTitle>
@@ -52,16 +53,16 @@ export default function OverViewPage() {
                 </CardHeader>
                 <CardFooter className='flex-col items-start gap-1.5 text-sm'>
                   <div className='line-clamp-1 flex gap-2 font-medium'>
-                    Trending up this month <IconTrendingUp className='size-4' />
+                    {t('trendingUp')} <IconTrendingUp className='size-4' />
                   </div>
                   <div className='text-muted-foreground'>
-                    Visitors for the last 6 months
+                    {t('visitorsLast6Months')}
                   </div>
                 </CardFooter>
               </Card>
               <Card className='@container/card'>
                 <CardHeader>
-                  <CardDescription>New Customers</CardDescription>
+                  <CardDescription>{t('newCustomers')}</CardDescription>
                   <CardTitle className='text-2xl font-semibold tabular-nums @[250px]/card:text-3xl'>
                     1,234
                   </CardTitle>
@@ -74,16 +75,16 @@ export default function OverViewPage() {
                 </CardHeader>
                 <CardFooter className='flex-col items-start gap-1.5 text-sm'>
                   <div className='line-clamp-1 flex gap-2 font-medium'>
-                    Down 20% this period <IconTrendingDown className='size-4' />
+                    {t('down20Percent')} <IconTrendingDown className='size-4' />
                   </div>
                   <div className='text-muted-foreground'>
-                    Acquisition needs attention
+                    {t('acquisitionNeedsAttention')}
                   </div>
                 </CardFooter>
               </Card>
               <Card className='@container/card'>
                 <CardHeader>
-                  <CardDescription>Active Accounts</CardDescription>
+                  <CardDescription>{t('activeAccounts')}</CardDescription>
                   <CardTitle className='text-2xl font-semibold tabular-nums @[250px]/card:text-3xl'>
                     45,678
                   </CardTitle>
@@ -96,16 +97,17 @@ export default function OverViewPage() {
                 </CardHeader>
                 <CardFooter className='flex-col items-start gap-1.5 text-sm'>
                   <div className='line-clamp-1 flex gap-2 font-medium'>
-                    Strong user retention <IconTrendingUp className='size-4' />
+                    {t('strongUserRetention')}{' '}
+                    <IconTrendingUp className='size-4' />
                   </div>
                   <div className='text-muted-foreground'>
-                    Engagement exceed targets
+                    {t('engagementExceedTargets')}
                   </div>
                 </CardFooter>
               </Card>
               <Card className='@container/card'>
                 <CardHeader>
-                  <CardDescription>Growth Rate</CardDescription>
+                  <CardDescription>{t('growthRate')}</CardDescription>
                   <CardTitle className='text-2xl font-semibold tabular-nums @[250px]/card:text-3xl'>
                     4.5%
                   </CardTitle>
@@ -118,11 +120,11 @@ export default function OverViewPage() {
                 </CardHeader>
                 <CardFooter className='flex-col items-start gap-1.5 text-sm'>
                   <div className='line-clamp-1 flex gap-2 font-medium'>
-                    Steady performance increase{' '}
+                    {t('steadyPerformanceIncrease')}{' '}
                     <IconTrendingUp className='size-4' />
                   </div>
                   <div className='text-muted-foreground'>
-                    Meets growth projections
+                    {t('meetsGrowthProjections')}
                   </div>
                 </CardFooter>
               </Card>

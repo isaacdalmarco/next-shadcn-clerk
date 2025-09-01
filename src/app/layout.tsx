@@ -7,6 +7,8 @@ import type { Metadata, Viewport } from 'next';
 import { cookies } from 'next/headers';
 import NextTopLoader from 'nextjs-toploader';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale, getMessages } from 'next-intl/server';
 import './globals.css';
 import './theme.css';
 
@@ -33,8 +35,12 @@ export default async function RootLayout({
   const activeThemeValue = cookieStore.get('active_theme')?.value;
   const isScaled = activeThemeValue?.endsWith('-scaled');
 
+  // Detecta o idioma do servidor baseado no header accept-language
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang='en' suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -65,10 +71,12 @@ export default async function RootLayout({
             disableTransitionOnChange
             enableColorScheme
           >
-            <Providers activeThemeValue={activeThemeValue as string}>
-              <Toaster />
-              {children}
-            </Providers>
+            <NextIntlClientProvider messages={messages} locale={locale}>
+              <Providers activeThemeValue={activeThemeValue as string}>
+                <Toaster />
+                {children}
+              </Providers>
+            </NextIntlClientProvider>
           </ThemeProvider>
         </NuqsAdapter>
       </body>
