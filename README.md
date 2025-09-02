@@ -7,7 +7,7 @@
 <div align="center">Built with the Next.js 15 App Router</div>
 <br />
 <div align="center">
-<a href="https://dub.sh/shadcn-dashboard">View Demo</a>
+<a href="https://next-shadcn-clerk.vercel.app/">View Demo</a>
 <span>
 </div>
 
@@ -133,6 +133,7 @@ cp env.example.txt .env
 Edit `.env` and add your Clerk keys:
 
 ```env
+DATABASE_URL=file:./dev.db
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 CLERK_SECRET_KEY=your_clerk_secret_key
 NEXT_PUBLIC_CLERK_SIGN_IN_URL=/auth/sign-in
