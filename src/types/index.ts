@@ -33,3 +33,9 @@ export interface FooterItem {
 export type MainNavItem = NavItemWithOptionalChildren;
 
 export type SidebarNavItem = NavItemWithChildren;
+
+// Re-export types from other modules
+export * from './user';
+export * from './post';
+export * from './product';
+export * from './task';

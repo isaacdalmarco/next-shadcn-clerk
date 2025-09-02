@@ -28,6 +28,14 @@ export function useNavItems(): NavItem[] {
       shortcut: ['k', 'k'],
       isActive: false,
       items: []
+    },
+    {
+      title: t('posts'),
+      url: '/dashboard/posts',
+      icon: 'posts',
+      shortcut: ['o', 'o'],
+      isActive: false,
+      items: []
     }
   ];
 }

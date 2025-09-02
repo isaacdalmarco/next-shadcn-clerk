@@ -6,6 +6,7 @@ import React from 'react';
 import { ActiveThemeProvider } from '../active-theme';
 import { ptBR, enUS, esES } from '@clerk/localizations';
 import { useLocale } from 'next-intl';
+import { QueryProvider } from '../providers/query-provider';
 
 export default function Providers({
   activeThemeValue,
@@ -34,14 +35,16 @@ export default function Providers({
   return (
     <>
       <ActiveThemeProvider initialTheme={activeThemeValue}>
-        <ClerkProvider
-          localization={getClerkLocalization(locale)}
-          appearance={{
-            baseTheme: resolvedTheme === 'dark' ? dark : undefined
-          }}
-        >
-          {children}
-        </ClerkProvider>
+        <QueryProvider>
+          <ClerkProvider
+            localization={getClerkLocalization(locale)}
+            appearance={{
+              baseTheme: resolvedTheme === 'dark' ? dark : undefined
+            }}
+          >
+            {children}
+          </ClerkProvider>
+        </QueryProvider>
       </ActiveThemeProvider>
     </>
   );

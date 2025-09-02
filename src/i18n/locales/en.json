@@ -16,7 +16,8 @@
     "actions": "Actions",
     "status": "Status",
     "created": "Created",
-    "updated": "Updated"
+    "updated": "Updated",
+    "deleting": "Deleting..."
   },
   "navigation": {
     "overview": "Overview",
@@ -24,7 +25,8 @@
     "kanban": "Kanban",
     "profile": "Profile",
     "dashboard": "Dashboard",
-    "home": "Home"
+    "home": "Home",
+    "posts": "Posts"
   },
   "sidebar": {
     "overview": "Overview",
@@ -224,5 +226,123 @@
     "light": "Light",
     "dark": "Dark",
     "system": "System"
+  },
+
+  "posts": {
+    "page": {
+      "title": "Posts",
+      "description": "Manage system posts"
+    },
+    "form": {
+      "title": "Post Form",
+      "description": "Fill in post data",
+      "title": "Title",
+      "titlePlaceholder": "Enter title",
+      "content": "Content",
+      "contentPlaceholder": "Enter content",
+      "author": "Author",
+      "authorPlaceholder": "Author ID",
+      "published": "Published",
+      "submit": "Save",
+      "submitting": "Saving...",
+      "createSubmit": "Create Post",
+      "updateSubmit": "Update Post"
+    },
+    "list": {
+      "title": "Posts List",
+      "createButton": "New Post",
+      "edit": "Edit",
+      "delete": "Delete",
+      "confirmDelete": "Are you sure you want to delete this post?",
+      "published": "Published",
+      "draft": "Draft",
+      "authorId": "Author",
+      "empty": "No posts found",
+      "error": "Error loading posts"
+    },
+    "dialog": {
+      "createTitle": "Create New Post",
+      "editTitle": "Edit Post"
+    }
+  },
+  "products": {
+    "page": {
+      "title": "Products",
+      "description": "Manage your products and inventory"
+    },
+    "form": {
+      "title": "Product Form",
+      "description": "Create or edit a product",
+      "name": "Product Name",
+      "namePlaceholder": "Enter product name",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter product description",
+      "price": "Price",
+      "pricePlaceholder": "Enter price",
+      "category": "Category",
+      "categoryPlaceholder": "Select category",
+      "photoUrl": "Photo URL",
+      "photoUrlPlaceholder": "Enter photo URL",
+      "submit": "Submit",
+      "createSubmit": "Create Product",
+      "updateSubmit": "Update Product",
+      "submitting": "Submitting..."
+    },
+    "list": {
+      "title": "Products List",
+      "createButton": "New Product",
+      "edit": "Edit",
+      "delete": "Delete",
+      "authorId": "Author",
+      "confirmDelete": "Are you sure you want to delete this product?",
+      "empty": "No products found",
+      "error": "Error loading products"
+    },
+    "dialog": {
+      "createTitle": "Create New Product",
+      "editTitle": "Edit Product"
+    }
+  },
+  "tasks": {
+    "page": {
+      "title": "Tasks",
+      "description": "Manage your tasks and projects"
+    },
+    "form": {
+      "title": "Task Form",
+      "description": "Create or edit a task",
+      "titleField": "Title",
+      "titlePlaceholder": "Enter task title",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter task description",
+      "status": "Status",
+      "statusPlaceholder": "Select status",
+      "column": "Column",
+      "columnPlaceholder": "Select column",
+      "submit": "Submit",
+      "createSubmit": "Create Task",
+      "updateSubmit": "Update Task",
+      "submitting": "Submitting..."
+    },
+    "list": {
+      "title": "Tasks List",
+      "createButton": "New Task",
+      "edit": "Edit",
+      "delete": "Delete",
+      "authorId": "Author",
+      "confirmDelete": "Are you sure you want to delete this task?",
+      "empty": "No tasks found",
+      "error": "Error loading tasks"
+    },
+    "dialog": {
+      "createTitle": "Create New Task",
+      "editTitle": "Edit Task"
+    },
+    "kanban": {
+      "title": "Kanban Board",
+      "description": "Organize your tasks with drag and drop",
+      "addColumn": "Add Column",
+      "addTask": "Add Task"
+    }
   }
 }

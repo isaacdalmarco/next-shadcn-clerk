@@ -7,8 +7,8 @@ import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 
 export const metadata: Metadata = {
-  title: 'Meus Alugueis - Dashboard',
-  description: 'Dashboard para gerenciamento de alugueis'
+  title: 'Dashboard',
+  description: 'Dashboard para gerenciamento'
 };
 
 export default async function DashboardLayout({

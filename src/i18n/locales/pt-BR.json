@@ -16,7 +16,8 @@
     "actions": "Ações",
     "status": "Status",
     "created": "Criado",
-    "updated": "Atualizado"
+    "updated": "Atualizado",
+    "deleting": "Excluindo..."
   },
   "navigation": {
     "overview": "Visão Geral",
@@ -24,7 +25,8 @@
     "kanban": "Kanban",
     "profile": "Perfil",
     "dashboard": "Painel",
-    "home": "Início"
+    "home": "Início",
+    "posts": "Posts"
   },
   "sidebar": {
     "overview": "Visão Geral",
@@ -224,5 +226,123 @@
     "light": "Claro",
     "dark": "Escuro",
     "system": "Sistema"
+  },
+
+  "posts": {
+    "page": {
+      "title": "Posts",
+      "description": "Gerencie posts do sistema"
+    },
+    "form": {
+      "title": "Formulário de Post",
+      "description": "Preencha os dados do post",
+      "title": "Título",
+      "titlePlaceholder": "Digite o título",
+      "content": "Conteúdo",
+      "contentPlaceholder": "Digite o conteúdo",
+      "author": "Autor",
+      "authorPlaceholder": "ID do autor",
+      "published": "Publicado",
+      "submit": "Salvar",
+      "submitting": "Salvando...",
+      "createSubmit": "Criar Post",
+      "updateSubmit": "Atualizar Post"
+    },
+    "list": {
+      "title": "Lista de Posts",
+      "createButton": "Novo Post",
+      "edit": "Editar",
+      "delete": "Excluir",
+      "confirmDelete": "Tem certeza que deseja excluir este post?",
+      "published": "Publicado",
+      "draft": "Rascunho",
+      "authorId": "Autor",
+      "empty": "Nenhum post encontrado",
+      "error": "Erro ao carregar posts"
+    },
+    "dialog": {
+      "createTitle": "Criar Novo Post",
+      "editTitle": "Editar Post"
+    }
+  },
+  "products": {
+    "page": {
+      "title": "Produtos",
+      "description": "Gerencie seus produtos e inventário"
+    },
+    "form": {
+      "title": "Formulário de Produto",
+      "description": "Criar ou editar um produto",
+      "name": "Nome do Produto",
+      "namePlaceholder": "Digite o nome do produto",
+      "description": "Descrição",
+      "descriptionPlaceholder": "Digite a descrição do produto",
+      "price": "Preço",
+      "pricePlaceholder": "Digite o preço",
+      "category": "Categoria",
+      "categoryPlaceholder": "Selecione categoria",
+      "photoUrl": "URL da Foto",
+      "photoUrlPlaceholder": "Digite URL da foto",
+      "submit": "Enviar",
+      "createSubmit": "Criar Produto",
+      "updateSubmit": "Atualizar Produto",
+      "submitting": "Enviando..."
+    },
+    "list": {
+      "title": "Lista de Produtos",
+      "createButton": "Novo Produto",
+      "edit": "Editar",
+      "delete": "Excluir",
+      "authorId": "Autor",
+      "confirmDelete": "Tem certeza de que deseja excluir este produto?",
+      "empty": "Nenhum produto encontrado",
+      "error": "Erro ao carregar produtos"
+    },
+    "dialog": {
+      "createTitle": "Criar Novo Produto",
+      "editTitle": "Editar Produto"
+    }
+  },
+  "tasks": {
+    "page": {
+      "title": "Tarefas",
+      "description": "Gerencie suas tarefas e projetos"
+    },
+    "form": {
+      "title": "Formulário de Tarefa",
+      "description": "Criar ou editar uma tarefa",
+      "titleField": "Título",
+      "titlePlaceholder": "Digite o título da tarefa",
+      "description": "Descrição",
+      "descriptionPlaceholder": "Digite a descrição da tarefa",
+      "status": "Status",
+      "statusPlaceholder": "Selecione status",
+      "column": "Coluna",
+      "columnPlaceholder": "Selecione a coluna",
+      "submit": "Enviar",
+      "createSubmit": "Criar Tarefa",
+      "updateSubmit": "Atualizar Tarefa",
+      "submitting": "Enviando..."
+    },
+    "list": {
+      "title": "Lista de Tarefas",
+      "createButton": "Nova Tarefa",
+      "edit": "Editar",
+      "delete": "Excluir",
+      "authorId": "Autor",
+      "confirmDelete": "Tem certeza de que deseja excluir esta tarefa?",
+      "empty": "Nenhuma tarefa encontrada",
+      "error": "Erro ao carregar tarefas"
+    },
+    "dialog": {
+      "createTitle": "Criar Nova Tarefa",
+      "editTitle": "Editar Tarefa"
+    },
+    "kanban": {
+      "title": "Quadro Kanban",
+      "description": "Organize suas tarefas com arrastar e soltar",
+      "addColumn": "Adicionar Coluna",
+      "addTask": "Adicionar Tarefa"
+    }
   }
 }

@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  id             String   @id @default(cuid())
+  title          String
+  content        String?
+  published      Boolean  @default(false)
+  authorId       String // Clerk User ID
+  organizationId String // Clerk Organization ID
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("posts")
+}
+
+model Product {
+  id             String   @id @default(cuid())
+  name           String
+  description    String?
+  price          Float
+  category       String
+  photoUrl       String?
+  authorId       String // Clerk User ID
+  organizationId String // Clerk Organization ID
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("products")
+}
+
+model Task {
+  id             String   @id @default(cuid())
+  title          String
+  description    String?
+  status         String // TODO, IN_PROGRESS, DONE, etc.
+  authorId       String // Clerk User ID
+  organizationId String // Clerk Organization ID
+  columnId       String? // Column ID for Kanban board
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("tasks")
+}
+
+model Column {
+  id             String   @id @default(cuid())
+  title          String
+  color          String   @default("#3b82f6") // Cor padrão azul
+  order          Int      @default(0)
+  organizationId String // Clerk Organization ID
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("columns")
+}

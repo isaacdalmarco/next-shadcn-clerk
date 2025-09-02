@@ -1,4 +1,4 @@
-import { Task } from '../utils/store';
+import { KanbanTask } from '../types';
 import { useDndContext, type UniqueIdentifier } from '@dnd-kit/core';
 import { SortableContext, useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
@@ -14,6 +14,7 @@ import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 export interface Column {
   id: UniqueIdentifier;
   title: string;
+  color?: string;
 }
 
 export type ColumnType = 'Column';
@@ -25,11 +26,19 @@ export interface ColumnDragData {
 
 interface BoardColumnProps {
   column: Column;
-  tasks: Task[];
+  tasks: KanbanTask[];
   isOverlay?: boolean;
+  onEditTask?: (task: KanbanTask) => void;
+  onDeleteTask?: (task: KanbanTask) => void;
 }
 
-export function BoardColumn({ column, tasks, isOverlay }: BoardColumnProps) {
+export function BoardColumn({
+  column,
+  tasks,
+  isOverlay,
+  onEditTask,
+  onDeleteTask
+}: BoardColumnProps) {
   const tasksIds = useMemo(() => {
     return tasks.map((task) => task.id);
   }, [tasks]);
@@ -93,13 +102,22 @@ export function BoardColumn({ column, tasks, isOverlay }: BoardColumnProps) {
           defaultValue={column.title}
           className="text-base mt-0! mr-auto"
         /> */}
-        <ColumnActions id={column.id} title={column.title} />
+        <ColumnActions
+          id={column.id}
+          title={column.title}
+          color={column.color}
+        />
       </CardHeader>
       <CardContent className='flex grow flex-col gap-4 overflow-x-hidden p-2'>
         <ScrollArea className='h-full'>
           <SortableContext items={tasksIds}>
             {tasks.map((task) => (
-              <TaskCard key={task.id} task={task} />
+              <TaskCard
+                key={task.id}
+                task={task}
+                onEdit={onEditTask}
+                onDelete={onDeleteTask}
+              />
             ))}
           </SortableContext>
         </ScrollArea>

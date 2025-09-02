@@ -18,12 +18,13 @@ This is a starter template using the following stack:
 - Framework - [Next.js 15](https://nextjs.org/13)
 - Language - [TypeScript](https://www.typescriptlang.org)
 - Auth - [Clerk](https://go.clerk.com/ILdYhn7)
+- Database - [Prisma ORM](https://www.prisma.io/) with SQLite
 - Error tracking - [<picture><img alt="Sentry" src="public/assets/sentry.svg">
   </picture>](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy26q2-nextjs&utm_content=github-banner-project-tryfree)
 - Styling - [Tailwind CSS v4](https://tailwindcss.com)
 - Components - [Shadcn-ui](https://ui.shadcn.com)
 - Schema Validations - [Zod](https://zod.dev)
-- State Management - [Zustand](https://zustand-demo.pmnd.rs)
+- State Management - [Tanstack Query](https://tanstack.com/query/latest) + [Zustand](https://zustand-demo.pmnd.rs)
 - Search params state manager - [Nuqs](https://nuqs.47ng.com/)
 - Tables - [Tanstack Data Tables](https://ui.shadcn.com/docs/components/data-table) • [Dice table](https://www.diceui.com/docs/components/data-table)
 - Forms - [React Hook Form](https://ui.shadcn.com/docs/components/form)
@@ -103,6 +104,94 @@ src/
 └── types/ # TypeScript types
 └── index.ts
 ```
+
+## 🗄️ Database Setup (Prisma)
+
+This project uses **Prisma ORM** with **SQLite** for local development. Follow these steps to set up the database from scratch:
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js 18+
+- pnpm (recommended) or npm
+
+### 1. Install Dependencies
+
+```bash
+pnpm install
+```
+
+### 2. Environment Setup
+
+Copy the environment example file and configure your variables:
+
+```bash
+cp env.example.txt .env
+```
+
+Edit `.env` and add your Clerk keys:
+
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/auth/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/auth/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard
+```
+
+### 3. Database Initialization
+
+Since this is a fresh database, you need to create the initial migration and apply it:
+
+```bash
+# Generate Prisma client
+pnpm prisma generate
+
+# Create and apply the initial migration
+pnpm prisma migrate dev --name init
+```
+
+### 4. Database Schema
+
+The current schema includes the following models:
+
+- **Post**: Blog posts with author and organization
+- **Product**: Product catalog with categories and pricing
+- **Task**: Kanban tasks with status and column assignment
+- **Column**: Kanban board columns with colors and ordering
+
+### 5. Development Commands
+
+```bash
+# Start development server
+pnpm dev
+
+# View database in Prisma Studio
+pnpm prisma studio
+
+# Reset database (⚠️ This will delete all data)
+pnpm prisma migrate reset
+
+# Generate new migration after schema changes
+pnpm prisma migrate dev --name your_migration_name
+
+# Deploy migrations to production
+pnpm prisma migrate deploy
+```
+
+### 6. Database Files
+
+The following files are automatically ignored by Git:
+
+- `dev.db` - SQLite database file
+- `dev.db-journal` - SQLite journal file
+- `prisma/migrations/` - Migration files (should be committed)
+
+### 7. Production Database
+
+For production, update the `DATABASE_URL` in your environment variables to point to your production database (PostgreSQL, MySQL, etc.).
 
 ## Getting Started
 
