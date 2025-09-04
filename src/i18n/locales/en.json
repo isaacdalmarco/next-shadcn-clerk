@@ -26,7 +26,8 @@
     "profile": "Profile",
     "dashboard": "Dashboard",
     "home": "Home",
-    "posts": "Posts"
+    "posts": "Posts",
+    "logout": "Logout"
   },
   "sidebar": {
     "overview": "Overview",

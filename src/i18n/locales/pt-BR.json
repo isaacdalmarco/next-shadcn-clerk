@@ -26,7 +26,8 @@
     "profile": "Perfil",
     "dashboard": "Painel",
     "home": "Início",
-    "posts": "Posts"
+    "posts": "Posts",
+    "logout": "Sair"
   },
   "sidebar": {
     "overview": "Visão Geral",

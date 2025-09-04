@@ -7,7 +7,7 @@
 <div align="center">Built with the Next.js 15 App Router</div>
 <br />
 <div align="center">
-<a href="https://dub.sh/shadcn-dashboard">View Demo</a>
+<a href="https://next-shadcn-clerk.vercel.app/">View Demo</a>
 <span>
 </div>
 
@@ -33,8 +33,6 @@ This is a starter template using the following stack:
 - Linting - [ESLint](https://eslint.org)
 - Pre-commit Hooks - [Husky](https://typicode.github.io/husky/)
 - Formatting - [Prettier](https://prettier.io)
-
-_If you are looking for a Tanstack start dashboard template, here is the [repo](https://git.new/tanstack-start-dashboard)._
 
 ## Additional Features
 
@@ -133,6 +131,7 @@ cp env.example.txt .env
 Edit `.env` and add your Clerk keys:
 
 ```env
+DATABASE_URL=file:./dev.db
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 CLERK_SECRET_KEY=your_clerk_secret_key
 NEXT_PUBLIC_CLERK_SIGN_IN_URL=/auth/sign-in
