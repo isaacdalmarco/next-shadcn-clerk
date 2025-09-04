@@ -31,7 +31,7 @@ import {
 import { UserAvatarProfile } from '@/components/user-avatar-profile';
 import { useNavItems } from '@/hooks/use-nav-items';
 import { useMediaQuery } from '@/hooks/use-media-query';
-import { useUser } from '@clerk/nextjs';
+import { useUser, useClerk } from '@clerk/nextjs';
 import { OrganizationSwitcher } from '@clerk/nextjs';
 import { useSidebar } from '@/components/ui/sidebar';
 import {
@@ -41,7 +41,6 @@ import {
   IconLogout,
   IconUserCircle
 } from '@tabler/icons-react';
-import { SignOutButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import * as React from 'react';
@@ -55,6 +54,7 @@ export default function AppSidebar() {
   const pathname = usePathname();
   const { isOpen } = useMediaQuery();
   const { user } = useUser();
+  const { signOut } = useClerk();
   const router = useRouter();
   const { state } = useSidebar();
 
@@ -65,6 +65,11 @@ export default function AppSidebar() {
   React.useEffect(() => {
     // Side effects based on sidebar state changes
   }, [isOpen]);
+
+  const handleLogout = async () => {
+    await signOut();
+    router.push(process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL || '/auth/sign-in');
+  };
 
   const t = useTranslations();
   const navItems = useNavItems();
@@ -210,9 +215,9 @@ export default function AppSidebar() {
                 </DropdownMenuGroup>
 
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={handleLogout}>
                   <IconLogout className='mr-2 h-4 w-4' />
-                  <SignOutButton redirectUrl='/auth/sign-in' />
+                  {t('navigation.logout')}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

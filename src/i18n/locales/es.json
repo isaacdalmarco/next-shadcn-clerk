@@ -26,7 +26,8 @@
     "profile": "Perfil",
     "dashboard": "Panel",
     "home": "Inicio",
-    "posts": "Posts"
+    "posts": "Posts",
+    "logout": "Cerrar Sesión"
   },
   "sidebar": {
     "overview": "Resumen",
